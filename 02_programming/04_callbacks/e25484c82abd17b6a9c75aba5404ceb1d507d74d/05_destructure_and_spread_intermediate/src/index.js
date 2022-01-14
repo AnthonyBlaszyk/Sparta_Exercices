@@ -10,8 +10,11 @@ let storageHell = [
 ];
 // Should be cleaned this way => ['IPad', 'IPhone', 'GameBoy color', 'Nes', 'Donkey kong 64', 'Apex Legends Starter Pack', 'LG 5K 27p screen', 'Coffee Machine', 'Azelad']
 
-function formatStorage() {
+function formatStorage(array) {
   // Code your function here
+  const formatedArray = [...array[0], ...array[1], ...array[2], ...array[3], ...array[4], ...array[5]];
+
+  return formatedArray;
 }
 
 // ↓ Feel free to uncomment this next line, or even create more to try everything you do ↓
