@@ -37,8 +37,9 @@ const MORSE_CODE = {
   "----.": "9",
 };
 
-const decodeMorse = () => {
+const decodeMorse = (morseCode, counter) => {
   // Code here
+  console.log(morseCode);
 };
 
 // Leave line below for tests to work properly
