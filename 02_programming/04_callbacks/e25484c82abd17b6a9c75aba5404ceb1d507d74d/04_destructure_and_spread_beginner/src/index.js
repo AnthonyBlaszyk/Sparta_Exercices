@@ -20,15 +20,18 @@ let student = {
 
 let developer = {
   // code here
+  ...student,
+  ...knowledge,
 };
 
 
 
 let application = ["bug", "code", "code", "code", "code", "code", "code", "code", "code"];
-
-
 // code here
+const [bug, ...code] = application;
 
+console.log(bug);
+console.log(code);
 
 module.exports = {
   developer,
