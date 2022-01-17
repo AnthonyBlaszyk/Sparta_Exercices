@@ -1,6 +1,6 @@
-function greeter(people) {
+function greeter(peoples) {
   // Code the function here.
-  people.forEach((people)=>{
+  peoples.forEach((people)=>{
     console.log(`Hello ${people}!`);
   });
 }
