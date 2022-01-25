@@ -1,10 +1,16 @@
 const faker = require("faker");
 
-const firstName = faker.name.firstName();
-const lastName = faker.name.lastName();
-const city = faker.address.city();
-const phoneNumber = faker.phone.phoneNumber();
-const email = `${firstName}.${lastName}@fake.local`;
-const avater = faker.image.avatar();
+function identity() {
+  const fakerIdentity = {
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    city: faker.address.city(),
+    phoneNumber: faker.phone.phoneNumber(),
+    email: `${faker.name.firstName()}.${faker.name.lastName()}@fake.local`,
+    avatar: faker.image.avatar(),
+  };
 
-export { firstName, lastName, city, phoneNumber, email, avater };
+  return fakerIdentity;
+}
+
+module.exports = identity;

@@ -1,6 +1,12 @@
 const faker = require("faker");
 
-const catchPhrase = faker.company.catchPhrase();
-const description = faker.lorem.text();
+function motivation() {
+  const fakerMotivation = {
+    catchPhrase: faker.company.catchPhrase(),
+    description: faker.lorem.paragraph(1),
+  };
 
-export { catchPhrase, description };
+  return fakerMotivation;
+}
+
+module.exports = motivation;
