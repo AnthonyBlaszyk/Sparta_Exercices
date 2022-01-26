@@ -21,11 +21,11 @@ function handleInput(input, reader) {
       reader.close();
     } else {
       utilities.nextPlayer();
-      playTurn();
+      playTurn(reader);
     }
   } else {
     console.log("This is not a valid move");
-    playTurn();
+    playTurn(reader);
   }
 }
 
@@ -48,13 +48,14 @@ function updateState(coordinate, player) {
 
 function start(reader) {
   utilities.currentPlayer = ["X", "O"][Math.round(Math.random())];
-
+  // console.log("51 ", { reader });
   playTurn(reader);
 }
 
 function playTurn(reader) {
   console.log(display.renderBoard(state));
-  reader.question(`${utilities.currentPlayer}: What is your move? e.g: a1\n`, handleInput(reader));
+  console.log("57 ", { reader });
+  reader.question(`${utilities.currentPlayer}: What is your move? e.g: a1\n`, (input) => handleInput(input, reader));
 }
 
 function gameIsFinished(state) {
