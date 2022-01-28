@@ -1,0 +1,6 @@
+*.log
+.DS_Store
+node_modules
+using-a-submarine
+students-zips
+students-expected-results
