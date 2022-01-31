@@ -1,8 +1,8 @@
 // Replace `unkown` values with the right types
-type TeachersList = unknown;
-type YarnTestResults = unknown;
-type ResultsBulletin = unknown;
-type PairsList = unknown;
+type TeachersList = string[];
+type YarnTestResults = boolean[];
+type ResultsBulletin = (number | string)[];
+type PairsList = string[][];
 
 const batchTeachersList: TeachersList = ["Léo", "Marjorie", "Romel", "Jean", "Pascal"];
 
