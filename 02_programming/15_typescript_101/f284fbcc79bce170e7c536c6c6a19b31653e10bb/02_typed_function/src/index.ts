@@ -1,5 +1,5 @@
 // Remove 'unknown' and 'any' types by adequate ones
-function introduce(name: unknown, age: unknown): any {
+function introduce(name: string, age: number): void {
   console.log(`${name} is ${age} years old.`);
 }
 
