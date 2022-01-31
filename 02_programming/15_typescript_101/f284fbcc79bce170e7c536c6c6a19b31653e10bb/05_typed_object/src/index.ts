@@ -1,5 +1,10 @@
 type CardType = {
   // Code your type alias here
+  name: string;
+  type: string | string[];
+  cost: number;
+  damage: null | number;
+  rare: boolean;
 };
 
 // Uncomment all the cards below to help you rewrite CardType
