@@ -1,5 +1,6 @@
 const cart = require("./cart");
 const products = require("./products");
+const checkout = require("./checkout");
 
 function displayMenu(reader) {
   console.log("\n**************************************************");
@@ -30,12 +31,13 @@ function menuChoice(reader, callbackReturn, callbackQuit) {
         cart.displayCart(reader, callbackReturn, callbackQuit);
         break;
       case "3":
+        checkout.checkout(reader, callbackReturn, callbackQuit);
         break;
       case "4":
         quit(reader);
         break;
       default:
-        menuChoice(reader);
+        menuChoice(reader, callbackReturn, callbackQuit);
     }
   });
 }

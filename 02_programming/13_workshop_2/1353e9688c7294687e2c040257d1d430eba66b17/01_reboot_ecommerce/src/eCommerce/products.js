@@ -1,4 +1,3 @@
-const { addToCart } = require("./cart");
 const cart = require("./cart");
 
 const productBDD = [
@@ -46,7 +45,7 @@ function displayProduct(reader, callbackReturn, callbackQuit) {
 function chooseProduct(reader, callbackReturn, callbackQuit) {
   reader.question("\nchoose a product\n> ", (choice) => {
     if (Number(choice) > 0 && Number(choice) <= productBDD.length) {
-      reader.question(`How many ${productBDD[choice - 1].name} ?`, (quantity) => {
+      reader.question(`How many ${productBDD[choice - 1].name} ?\n> `, (quantity) => {
         if (checkCart(productBDD[choice - 1], quantity)) {
           productBDD[choice - 1].quantity -= Number(quantity);
           callbackReturn(reader);
@@ -55,7 +54,6 @@ function chooseProduct(reader, callbackReturn, callbackQuit) {
           cart.addToCart(reader, productBDD[choice - 1], quantity);
           callbackReturn(reader);
         }
-        callbackReturn(reader);
       });
     } else {
       console.log("Wrong input!");

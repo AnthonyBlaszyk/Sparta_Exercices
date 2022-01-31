@@ -37,7 +37,7 @@ function cartChoice(reader, callbackReturn, callbackQuit) {
         callbackQuit(reader);
         break;
       default:
-        cartChoice(reader);
+        cartChoice(reader, callbackReturn, callbackQuit);
     }
   });
 }
@@ -61,4 +61,5 @@ module.exports = {
   cart: cart,
   addToCart: addToCart,
   displayCart: displayCart,
+  calculateTotalPrice: calculateTotalPrice,
 };
