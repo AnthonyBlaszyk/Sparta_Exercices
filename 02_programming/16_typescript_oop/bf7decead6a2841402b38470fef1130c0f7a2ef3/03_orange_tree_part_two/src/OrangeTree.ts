@@ -6,7 +6,6 @@ class OrangeTree extends Tree {
 
   growOranges(): void {
     this.oranges = [];
-
     if (this.age >= 5 && this.age <= 10) {
       for (let i = 0; i < 10; i++) {
         this.oranges.push("🍊");
@@ -38,10 +37,6 @@ class OrangeTree extends Tree {
     this.height = this.updateHeight();
     this.growOranges();
     this.alive = this.isAlive();
-  }
-
-  seed(): void {
-    super.seed();
   }
 }
 

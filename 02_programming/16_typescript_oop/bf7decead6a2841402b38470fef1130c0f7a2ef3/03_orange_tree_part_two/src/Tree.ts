@@ -25,6 +25,5 @@ class Tree {
     this.alive = true;
   }
 }
-
 // Leave the line below for tests to work properly.
 export { Tree };
