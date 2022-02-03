@@ -29,19 +29,19 @@ const coffeeRecipes: CoffeeRecipe[] = [
 ];
 
 describe("#giveRecipe function", () => {
-  test("", () => {
+  test("giveRecipe is a function", () => {
     expect.assertions(2);
     expect(typeof giveRecipe).toEqual("function");
     expect(giveRecipe.length).toEqual(1);
   });
 
-  test("     ", () => {
+  test("giveRecipe take a string argument", () => {
     expect.assertions(2);
     expect(typeof giveRecipe("latte")).toEqual("string");
     expect(typeof giveRecipe("anything else")).toEqual("string");
   });
 
-  test(" ssssSs", () => {
+  test("the coffee have the correct ingredients", () => {
     expect.assertions(5);
     coffeeRecipes.forEach((coffee) => {
       const result = giveRecipe(coffee.name);
@@ -49,7 +49,7 @@ describe("#giveRecipe function", () => {
     });
   });
 
-  test("", () => {
+  test("send an error if coffee doesn't exist", () => {
     expect.assertions(3);
     expect(giveRecipe("LATTE")).toEqual("Sorry, LATTE does not exist on our list.");
     expect(giveRecipe("latt")).toEqual("Sorry, latt does not exist on our list.");
