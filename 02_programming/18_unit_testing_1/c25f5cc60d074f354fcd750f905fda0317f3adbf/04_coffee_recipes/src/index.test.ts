@@ -41,7 +41,7 @@ describe("#giveRecipe function", () => {
     expect(typeof giveRecipe("anything else")).toEqual("string");
   });
 
-  test("the coffee have the correct ingredients", () => {
+  test("Check if coffee name match coffee ingrediant", () => {
     expect.assertions(5);
     coffeeRecipes.forEach((coffee) => {
       const result = giveRecipe(coffee.name);
