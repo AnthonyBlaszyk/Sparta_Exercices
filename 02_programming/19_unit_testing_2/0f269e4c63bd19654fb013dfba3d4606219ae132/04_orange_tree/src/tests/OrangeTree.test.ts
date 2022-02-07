@@ -1,24 +1,47 @@
-import { OrangeTree } from "../OrangeTree"
+import { OrangeTree } from "../OrangeTree";
+import { Tree } from "../Tree";
 
 describe("OrangeTree life", () => {
   test("isAlive: a new tree should be alive", () => {
     expect.assertions(1);
+    const tree = new OrangeTree(1);
+
+    expect(tree.alive).toBe(true);
   });
 
   test("isAlive: a tree should not die before 50 years old", () => {
-    // For this test, we want to check what happens if we create a tree of 1 year old that 
+    // For this test, we want to check what happens if we create a tree of 1 year old that
     // we grow until 50 years old in a loop.
     // We know that the death occur with a call to `Math.random` so we need to mock its result to always return 0:
     // That way, we make sure that if it could die, it would.
     // Replace `isAlive()` by a function that returns `true` if `this.age > 30` (for instance) and this test should fail
     expect.assertions(1);
+
+    const tree = new OrangeTree(0);
+    const spy = jest.spyOn(Math, "random");
+    spy.mockImplementation(() => 0);
+
+    for (let i = 0; i < 50; i++) {
+      tree.ageOneYear();
+    }
+
+    expect(tree.alive).toBe(true);
+    spy.mockRestore();
   });
 
   test("isAlive: a tree should be dead before 101 years old", () => {
-    // For this test, we want to check what happens if we create a tree of 1 year old that 
+    // For this test, we want to check what happens if we create a tree of 1 year old that
     // we grow until 101 years old in a loop.
     // At the end, we should be sure that the tree is dead.
     expect.assertions(1);
+
+    const tree = new OrangeTree(1);
+
+    for (let i = 0; i < 100; i++) {
+      tree.ageOneYear();
+    }
+
+    expect(tree.alive).toBe(false);
   });
 });
 
