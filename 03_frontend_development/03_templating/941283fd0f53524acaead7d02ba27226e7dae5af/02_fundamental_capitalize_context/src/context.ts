@@ -1,5 +1,9 @@
-import { capitalize } from "./capitalize"
+import { capitalize } from "./capitalize";
 
 export function context(sentence: string): string {
-  // Code here and use the function `capitalize` from exercise one
+  const wordArray = sentence.split(" ");
+  for (let i = 0; i < wordArray.length; i++) {
+    wordArray[i] = capitalize(wordArray[i]);
+  }
+  return wordArray.join(" ");
 }
