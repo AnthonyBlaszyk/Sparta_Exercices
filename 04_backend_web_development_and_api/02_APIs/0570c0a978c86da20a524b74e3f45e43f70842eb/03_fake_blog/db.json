@@ -1,9 +1,14 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "My first Blog Post",
-      "author": "Frieda"
+      "title": "This is a test",
+      "author": "Frieda",
+      "id": 2
+    },
+    {
+      "title": "newPostTitle",
+      "author": "newPostAut",
+      "id": 3
     }
   ]
 }
