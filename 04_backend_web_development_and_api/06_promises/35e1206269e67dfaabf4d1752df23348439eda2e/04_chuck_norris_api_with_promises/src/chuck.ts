@@ -1,4 +1,4 @@
-import fetch, { Response } from "node-fetch";
+import fetch from "node-fetch";
 
 function getCategories(): Promise<string[]> {
   // Your code goes here
