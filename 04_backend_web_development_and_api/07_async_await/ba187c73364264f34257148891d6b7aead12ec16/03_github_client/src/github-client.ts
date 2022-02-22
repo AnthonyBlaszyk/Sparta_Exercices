@@ -4,32 +4,48 @@ export type Repo = {
   url: string;
   name: string;
   [key: string]: string | number | boolean | null;
-}
+};
 
 export type GitHub = {
   message: string;
   repos_url: string;
+};
+
+export async function getReposUrl(nickname: string): Promise<string> {
+  const response = await fetch(`https://api.github.com/users/${nickname}`);
+  const result = await response.json();
+
+  if ((await result.message) === "Not Found") {
+    throw new Error("user doesn't exist");
+  } else {
+    return result.repos_url;
+  }
 }
 
-
-export const getReposUrl = () => {
+export const getRepos = (url: string): Promise<Repo[]> => {
   // Code here
-}
+  return fetch(url).then((result) => result.json());
+};
 
-export const getRepos = () => {
+export const printRepos = (repos: Repo[]): Repo[] => {
   // Code here
-}
+  for (let i = 0; i < repos.length; i++) {
+    console.log(`${i + 1} - ${repos[i].name}`);
+  }
+  return repos;
+};
 
-export const printRepos = () => {
+export const printRepository = (repo: Repo): void => {
   // Code here
-}
+  console.log(repo.name);
+  console.log(repo.description);
+  console.log(repo.subscribers_count);
+  console.log(repo.stargazers_count);
+  console.log(repo.language);
+  console.log(repo.url);
+};
 
-
-export const printRepository = () => {
+export const getProjectInformations = (url: string): Promise<Repo> => {
   // Code here
-}
-
-export const getProjectInformations = () => {
-  // Code here
-}
-
+  return fetch(url).then((result) => result.json());
+};
