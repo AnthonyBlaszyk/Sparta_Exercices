@@ -1,37 +1,36 @@
 import React from "react";
 
-const CardBody = (zelda) => {
-  let [showScreen, setShowScreen] = React.useState(true);
-  const displayInfo = (
+const CardBody = (game) => {
+  const [showScreen, setShowScreen] = React.useState(false);
+  return (
     <div>
-      <img src={zelda.cover.url} alt="" />
-      <p>{zelda.firstReleaseDate}</p>
-      {zelda.genres.map(({ name }) => {
-        return <p key={name}>{name}</p>;
-      })}
-      <p>{zelda.summary}</p>
-    </div>
-  );
-  if (showScreen) {
-    return (
+      {/* cover */}
+      {game.cover.url ? <img src={game.cover.url} alt="Game's cover" /> : <img src={game.cover} alt="Game's cover" />}
+
+      {/* release date */}
+      <p>{game.firstReleaseDate}</p>
+
+      {/* genres */}
       <div>
-        <div>
-          {displayInfo}
-          <button onClick={() => setShowScreen((showScreen = false))}>Hide Screenshot</button>
-        </div>
-        {zelda.screenshots.map(({ url }) => {
-          return <img key={url} className="img-thumbnail" src={url} />;
+        {game.genres.map((genre, index) => {
+          return genre.name ? <p key={index}>{genre.name}</p> : <p key={index}>{genre}</p>;
         })}
       </div>
-    );
-  } else {
-    return (
+
+      {/* summary */}
+      <p>{game.summary}</p>
+
+      {/* show screenshot */}
+      <button onClick={() => setShowScreen(!showScreen)}>Show | hide Screenshot</button>
       <div>
-        {displayInfo}
-        <button onClick={() => setShowScreen((showScreen = true))}>Show screenshot</button>
+        {showScreen
+          ? game.screenshots.map((url, index) => {
+              return <img key={index} className="img-thumbnail" src={url} />;
+            })
+          : null}
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default CardBody;
