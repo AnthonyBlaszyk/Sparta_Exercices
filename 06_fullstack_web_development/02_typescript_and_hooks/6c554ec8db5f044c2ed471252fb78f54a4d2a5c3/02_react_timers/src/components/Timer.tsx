@@ -6,5 +6,17 @@ type TimerProps = {
 };
 
 export const Timer: React.FC<TimerProps> = ({ timerId, removeTimer }) => {
-  return <p>TIMER</p>;
+  const [time, setTime] = React.useState(0);
+
+  const timerid = setTimeout(() => {
+    setTime(time + 1);
+  });
+  console.log(timerid);
+
+  return (
+    <li className="list-group-item d-flex align-items-center  justify-content-between">
+      <p className="text-center">{time} seconds</p>
+      <div className="btn btn-danger">Delete</div>
+    </li>
+  );
 };
